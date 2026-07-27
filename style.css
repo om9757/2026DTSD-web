@@ -1,4 +1,11 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ===========================
+   Global Reset & Base Styles
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Poppins', Arial, sans-serif;
@@ -7,6 +14,9 @@ body {
   line-height: 1.6;
 }
 
+/* ===========================
+   Header & Navigation
+   =========================== */
 header {
   background: #333;
   color: white;
@@ -16,7 +26,15 @@ header {
   align-items: center;
 }
 
-.logo { font-weight: 600; font-size: 1.2em; }
+.logo {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
 
 nav a {
   color: white;
@@ -25,10 +43,16 @@ nav a {
   font-weight: 600;
 }
 
-nav a.active, nav a:hover { color: #ffcc00; }
+nav a.active,
+nav a:hover {
+  color: #ffcc00;
+}
 
+/* ===========================
+   Hero Section
+   =========================== */
 .hero {
-  background: url('../images/restaurant.jpg') no-repeat center center/cover;
+  background: url('images/restaurant.jpg') no-repeat center center/cover;
   color: white;
   text-align: center;
   padding: 120px 20px;
@@ -43,8 +67,14 @@ nav a.active, nav a:hover { color: #ffcc00; }
   background: rgba(0,0,0,0.5);
 }
 
-.hero h2, .hero p, .hero a { position: relative; z-index: 1; }
+.hero h2, .hero p, .hero a {
+  position: relative;
+  z-index: 1;
+}
 
+/* ===========================
+   Buttons
+   =========================== */
 .btn {
   background: #ffcc00;
   color: #333;
@@ -53,15 +83,28 @@ nav a.active, nav a:hover { color: #ffcc00; }
   border-radius: 5px;
   display: inline-block;
   margin-top: 15px;
+  transition: background 0.3s ease;
 }
 
-.btn:hover { background: #ffaa00; }
+.btn:hover {
+  background: #ffaa00;
+}
 
-main { max-width: 900px; margin: 0 auto; padding: 40px; }
+/* ===========================
+   Main Content
+   =========================== */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+}
 
+/* ===========================
+   Restaurant Cards
+   =========================== */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -70,8 +113,17 @@ main { max-width: 900px; margin: 0 auto; padding: 40px; }
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ===========================
+   Forms
+   =========================== */
 form {
   background: white;
   padding: 20px;
@@ -81,13 +133,24 @@ form {
   flex-direction: column;
 }
 
-label { margin-top: 10px; font-weight: 600; }
+label {
+  margin-top: 10px;
+  font-weight: 600;
+}
 
 input, select {
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+/* Validation feedback */
+input:invalid {
+  border: 2px solid red;
+}
+input:valid {
+  border: 2px solid green;
 }
 
 button {
@@ -98,9 +161,38 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-button:hover { background: #555; }
+button:hover {
+  background: #555;
+}
 
+/* ===========================
+   Footer
+   =========================== */
 footer {
-  background: #333}
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    margin: 10px 0;
+  }
+  main {
+    padding: 20px;
+  }
+  .hero {
+    padding: 80px 20px;
+  }
+}
