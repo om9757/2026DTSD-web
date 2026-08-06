@@ -6,8 +6,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Header and Navigation -->
   <header>
-    <div class="logo"> EventBooking</div>
+    <div class="logo">EventBooking</div>
     <nav>
       <a href="index.html">Home</a>
       <a href="events.html" class="active">Restaurants</a>
@@ -15,22 +16,30 @@
     </nav>
   </header>
 
+  <!-- Main Content -->
   <main>
     <h1>Available Restaurants</h1>
+    <p>Select a restaurant below to continue with your booking.</p>
+
     <div class="card-grid">
+      <!-- Restaurant Card 1 -->
       <div class="card">
         <h2>Ocean View Restaurant</h2>
         <p>Capacity: 100 guests | Location: Tauranga</p>
-        <a href="booking.html" class="btn">Book Now</a>
+        <!-- Pass restaurant choice via query string -->
+        <a href="booking.html?restaurant=OceanView" class="btn">Book Ocean View</a>
       </div>
+
+      <!-- Restaurant Card 2 -->
       <div class="card">
         <h2>City Lights Bistro</h2>
         <p>Capacity: 50 guests | Location: Downtown</p>
-        <a href="booking.html" class="btn">Book Now</a>
+        <a href="booking.html?restaurant=CityLights" class="btn">Book City Lights</a>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2026 Restaurant Event Booking</p>
   </footer>
