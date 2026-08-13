@@ -20,9 +20,11 @@
   <main>
     <h1>Book Your Event</h1>
     <form action="confirmation.html" method="get">
+
       <!-- Restaurant Selection -->
       <label for="restaurant">Choose Restaurant:</label>
       <select id="restaurant" name="restaurant" required>
+        <option value="">-- Select a Restaurant --</option>
         <option value="Ocean View">Ocean View Restaurant</option>
         <option value="City Lights">City Lights Bistro</option>
       </select>
@@ -36,7 +38,7 @@
       <input type="number" id="guests" name="guests" min="1" max="200" required>
 
       <!-- Pre-order Food Contact -->
-      <h3>Pre‑order Food</h3>
+      <h2>Pre‑order Food</h2>
       <p>For food pre‑orders, please contact us directly:</p>
       <p><a href="tel:02041522056">02041522056</a></p>
       <p><a href="mailto:patelo@stu.otc.school.nz">patelo@stu.otc.school.nz</a></p>
