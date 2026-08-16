@@ -83,8 +83,8 @@ nav a:hover {
 .hero p,
 .hero a {
   position: relative;
-  z-index: 1; /* ⭐ FIX: button clickable */
-  color: #ffffff; /* ⭐ FIX: text readable */
+  z-index: 1; 
+  color: #ffffff; 
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
