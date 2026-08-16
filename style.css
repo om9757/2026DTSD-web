@@ -1,6 +1,6 @@
-/* ===========================
-   Global Reset & Base Styles
-   =========================== */
+/* ==========================================================
+   GLOBAL RESET & BASE STYLES  (Used on ALL pages)
+   ========================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -14,15 +14,15 @@ html, body {
 body {
   font-family: 'Poppins', Arial, sans-serif;
   background: #f4f4f4;
-  color: #333;
+  color: #3c3c3c;
   line-height: 1.6;
   display: flex;
   flex-direction: column;
 }
 
-/* ===========================
-   Header & Navigation
-   =========================== */
+/* ==========================================================
+   HEADER & NAVIGATION  (Used on ALL pages)
+   ========================================================== */
 header {
   background: #333;
   color: white;
@@ -47,41 +47,50 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 nav a.active,
 nav a:hover {
   color: #ffcc00;
+  transform: scale(1.05);
 }
 
-/* ===========================
-   Hero Section
-   =========================== */
+/* ==========================================================
+   HOME PAGE — HERO SECTION
+   ========================================================== */
 .hero {
   background: url('images/restaurant.jpg') no-repeat center center/cover;
-  color: white;
   text-align: center;
   padding: 120px 20px;
   position: relative;
   flex: 1;
 }
 
+/* Dark overlay behind text */
 .hero::before {
   content: "";
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.5);
+  z-index: 0; /* ⭐ FIX: overlay behind button */
 }
 
-.hero h2, .hero p, .hero a {
+/* Hero text + button */
+.hero h1,
+.hero h2,
+.hero p,
+.hero a {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* ⭐ FIX: button clickable */
+  color: #ffffff; /* ⭐ FIX: text readable */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-/* ===========================
-   Buttons
-   =========================== */
+/* ==========================================================
+   BUTTONS  (Used on ALL pages)
+   ========================================================== */
 .btn {
   background: #ffcc00;
   color: #333;
@@ -90,16 +99,17 @@ nav a:hover {
   border-radius: 5px;
   display: inline-block;
   margin-top: 15px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background: #ffaa00;
+  transform: translateY(-3px);
 }
 
-/* ===========================
-   Main Content
-   =========================== */
+/* ==========================================================
+   MAIN CONTENT  (Used on ALL pages)
+   ========================================================== */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -107,9 +117,9 @@ main {
   flex: 1;
 }
 
-/* ===========================
-   Restaurant Cards
-   =========================== */
+/* ==========================================================
+   EVENTS PAGE — RESTAURANT CARDS
+   ========================================================== */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -129,9 +139,9 @@ main {
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* ===========================
-   Forms
-   =========================== */
+/* ==========================================================
+   BOOKING PAGE — FORM STYLING
+   ========================================================== */
 form {
   background: white;
   padding: 20px;
@@ -154,7 +164,7 @@ input, select {
 }
 
 input:invalid {
-  border: 2px solid red;
+  border: 2px solid rgb(69, 68, 68);
 }
 
 input:valid {
@@ -169,16 +179,17 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
   background: #555;
+  transform: translateY(-3px);
 }
 
-/* ===========================
-   Footer
-   =========================== */
+/* ==========================================================
+   FOOTER  (Used on ALL pages)
+   ========================================================== */
 footer {
   color: #333;
   text-align: center;
@@ -187,9 +198,9 @@ footer {
   margin-top: auto;
 }
 
-/* ===========================
-   Responsive Design
-   =========================== */
+/* ==========================================================
+   RESPONSIVE DESIGN  (Used on ALL pages)
+   ========================================================== */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -203,19 +214,14 @@ footer {
   .hero {
     padding: 80px 20px;
   }
-
-  /* Stack hours + menu on mobile */
   .details-row {
     flex-direction: column;
   }
 }
 
-/* ===========================
-   Restaurant Details Page
-   =========================== */
-
-
-/* Overview, Reviews, Buttons */
+/* ==========================================================
+   RESTAURANT DETAILS PAGE — OVERVIEW, REVIEWS, BUTTONS
+   ========================================================== */
 .overview,
 .reviews,
 .details-buttons {
@@ -225,12 +231,18 @@ footer {
   max-width: 900px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
 }
 
-/* ===========================
-   FIXED: Hours + Menu Same Size
-   =========================== */
+.overview:hover,
+.reviews:hover,
+.details-buttons:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
 
+/* ==========================================================
+   RESTAURANT DETAILS PAGE — HOURS + MENU
+   ========================================================== */
 .details-row {
   display: flex;
   gap: 20px;
@@ -245,16 +257,18 @@ footer {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-
-  /* Prevent overflow */
+  transition: box-shadow 0.3s ease;
   overflow: hidden;
-
-  /* Keep layout clean */
   display: flex;
   flex-direction: column;
 }
 
-/* Opening Hours Table */
+.details-row .hours:hover,
+.details-row .menu:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+
+/* Hours Table */
 .hours table {
   width: 100%;
   border-collapse: collapse;
